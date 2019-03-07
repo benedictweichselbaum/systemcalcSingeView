@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSystemCalc">
+   <children>
+      <MenuBar fx:id="menuBar" prefHeight="39.0" prefWidth="1005.0">
+        <menus>
+          <Menu fx:id="aboutMB" mnemonicParsing="false" text="Über das Tool">
+            <items>
+              <MenuItem fx:id="informationenMBUM" mnemonicParsing="false" onAction="#about" text="Informationen" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="25.0" layoutY="60.0" prefHeight="39.0" prefWidth="267.0" text="Zahlensystemumrechner">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rbFDual" layoutX="69.0" layoutY="169.0" mnemonicParsing="false" text="Dual" />
+      <RadioButton fx:id="rbFOctal" layoutX="69.0" layoutY="233.0" mnemonicParsing="false" text="Okatal" />
+      <RadioButton fx:id="rbFDecimal" layoutX="285.0" layoutY="169.0" mnemonicParsing="false" text="Dezimal" />
+      <RadioButton fx:id="rbFHex" layoutX="285.0" layoutY="233.0" mnemonicParsing="false" text="Hexadezimal" />
+      <RadioButton fx:id="rbTHex" layoutX="800.0" layoutY="233.0" mnemonicParsing="false" text="Hexadezimal" />
+      <RadioButton fx:id="rbTDecimal" layoutX="800.0" layoutY="169.0" mnemonicParsing="false" text="Dezimal" />
+      <RadioButton fx:id="rbTOctal" layoutX="584.0" layoutY="233.0" mnemonicParsing="false" text="Okatal" />
+      <RadioButton fx:id="rbTDual" layoutX="584.0" layoutY="169.0" mnemonicParsing="false" text="Dual" />
+      <Label layoutX="61.0" layoutY="124.0" prefHeight="27.0" prefWidth="68.0" text="Von ..." />
+      <Label layoutX="584.0" layoutY="124.0" prefHeight="27.0" prefWidth="68.0" text="Nach ..." />
+      <TextField fx:id="txtNumber" layoutX="59.0" layoutY="373.0" prefHeight="39.0" prefWidth="887.0" />
+      <Label layoutX="59.0" layoutY="331.0" prefHeight="27.0" prefWidth="329.0" text="Number, die umgewandelt werden soll:" />
+      <Label layoutX="59.0" layoutY="503.0" prefHeight="27.0" prefWidth="329.0" text="Ergebnis:" />
+      <TextField fx:id="txtSolution" editable="false" layoutX="59.0" layoutY="548.0" prefHeight="39.0" prefWidth="887.0" />
+      <Button fx:id="btnCalc" layoutX="803.0" layoutY="438.0" mnemonicParsing="false" onAction="#calculate" prefHeight="39.0" prefWidth="143.0" text="Berechnen" />
+      <Label fx:id="lblPic" layoutX="372.0" layoutY="648.0"/>
+   </children>
+</Pane>
