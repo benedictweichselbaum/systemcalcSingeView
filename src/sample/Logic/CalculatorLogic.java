@@ -120,7 +120,7 @@ public class CalculatorLogic {
 
     private String toDecimal(int system, String input) {
         String inputBuffer = input;
-        int[] number = new int[inputBuffer.length()];
+        long[] number = new long[inputBuffer.length()];
 
         if (system == 16) {
             for (int i = input.length() - 1; i >= 0; i--) {
@@ -154,17 +154,17 @@ public class CalculatorLogic {
                 inputBuffer = inputBuffer.substring(1);
             }
         }
-        int solution = 0;
+        long solution = 0;
 
         for(int i = 0; i < number.length; i++){
             solution = solution + number[i] * power(system, i);
         }
 
-        return Integer.toString(solution); 
+        return Long.toString(solution);
     }
 
     private String decimalTo(int system, String input){
-        int intInput = Integer.parseInt(input);
+        long intInput = Long.parseLong(input);
         String ergebnis;
 
         if(intInput/system == 0){
@@ -173,15 +173,15 @@ public class CalculatorLogic {
             }
             return input;
         }else{
-            String div = Integer.toString(intInput/system);
+            String div = Long.toString(intInput/system);
             String mod = modWithHex(system, intInput);
             ergebnis = decimalTo(system, div) + mod;
             return ergebnis;
         }
     }
 
-    private int power(int base, int expo){
-        int solution = 1;
+    private long power(long base, long expo){
+        long solution = 1;
         if(expo == 0){
             return solution;
         }else{
@@ -192,33 +192,33 @@ public class CalculatorLogic {
         }
     }
 
-    private String modWithHex(int system, int input){
+    private String modWithHex(int system, long input){
         if(system == 16){
-            int mod;
+            long mod;
             mod = input%system;
 
             return hexHelp(mod);
         }else{
-            return Integer.toString(input%system);
+            return Long.toString(input%system);
         }
     }
 
-    private String hexHelp(int hexNumber){
-        switch (hexNumber){
-            case 10:
+    private String hexHelp(long hexNumber){
+        switch (Long.toString(hexNumber)){
+            case "10":
                 return "A";
-            case 11:
+            case "11":
                 return "B";
-            case 12:
+            case "12":
                 return "C";
-            case 13:
+            case "13":
                 return "D";
-            case 14:
+            case "14":
                 return "E";
-            case 15:
+            case "15":
                 return "F";
         }
 
-        return Integer.toString(hexNumber);
+        return Long.toString(hexNumber);
     }
 }
