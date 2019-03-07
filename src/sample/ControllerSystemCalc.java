@@ -12,6 +12,10 @@ import sample.Logic.Information;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Copyright Benedict Weichselbaum
+ */
+
 public class ControllerSystemCalc implements Initializable {
 
     @FXML
@@ -59,6 +63,9 @@ public class ControllerSystemCalc implements Initializable {
     @FXML
     private Label lblPic;
 
+    @FXML
+    private Label lblHint;
+
     private ToggleGroup group2;
     private ToggleGroup group1;
     private Information information;
@@ -94,6 +101,7 @@ public class ControllerSystemCalc implements Initializable {
             transferCurrentInformation();
         }catch (Exception e){
             System.out.println("Ein Fehler in transferCurrentInformation()");
+            return;
         }
 
         calculatorLogic = new CalculatorLogic(information);
@@ -108,12 +116,31 @@ public class ControllerSystemCalc implements Initializable {
 
     private void transferCurrentInformation() throws Exception{
         information = new Information();
+        String fromID;
+        String toID;
 
-        RadioButton rbFrom = (RadioButton) group1.getSelectedToggle();
-        RadioButton rbTo = (RadioButton) group2.getSelectedToggle();
+        lblHint.setText("");
+        String checkEmptyNumberTxt = txtNumber.getText();
 
-        String fromID = rbFrom.getId();
-        String toID = rbTo.getId();
+        if(checkEmptyNumberTxt.equals("")){
+            lblHint.setText("Bitte gib' eine Nummer ein!");
+            throw new Exception();
+        }
+
+        try {
+            RadioButton rbFrom = (RadioButton) group1.getSelectedToggle();
+            fromID = rbFrom.getId();
+
+        }catch (Exception e){
+            fromID = "error";
+        }
+
+        try{
+            RadioButton rbTo = (RadioButton) group2.getSelectedToggle();
+            toID = rbTo.getId();
+        }catch (Exception e){
+            toID = "error";
+        }
 
         switch (fromID){
             case "rbFDual":
@@ -129,6 +156,7 @@ public class ControllerSystemCalc implements Initializable {
                 information.setFrom('h');
                 break;
             default:
+                lblHint.setText("Kein Eingangssystem gewählt!");
                 throw new Exception();
         }
 
@@ -146,6 +174,7 @@ public class ControllerSystemCalc implements Initializable {
                 information.setTo('h');
                 break;
             default:
+                lblHint.setText("Kein Ausgangssystem gewählt!");
                 throw new Exception();
         }
 
