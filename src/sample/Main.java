@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("SystemCalc");
         primaryStage.setScene(new Scene(root, 1007, 650));
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("numbers.png")));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("icon.gif")));
         primaryStage.show();
     }
 
