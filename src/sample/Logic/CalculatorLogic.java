@@ -62,8 +62,10 @@ public class CalculatorLogic {
         return input;
     }
 
+
+
     private String dualToDecimal(String input){
-        return input;
+
     }
 
     private String dualToOctal(String input){
@@ -108,5 +110,22 @@ public class CalculatorLogic {
 
     private String hexToOctal(String input){
         return input;
+    }
+
+    private String toDecimal(int system, String input){
+        int[] number = new int[input.length()];
+
+        for(int i = 0; i < input.length(); i++){
+            number[i] = input.charAt(0);
+            input = input.substring(1);
+        }
+
+        int solution = 0;
+
+        for(int i = 0; i < number.length; i++){
+            solution = solution + number[i] * system^i;
+        }
+
+        return Integer.toString(solution); 
     }
 }
