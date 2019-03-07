@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -11,9 +12,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sysCalcSinglePage.fxml"));
-        primaryStage.setTitle("Zahlensystemumrechner");
-        primaryStage.setScene(new Scene(root, 1005, 750));
+        primaryStage.setTitle("SystemCalc");
+        primaryStage.setScene(new Scene(root, 1007, 650));
         primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("numbers.png")));
         primaryStage.show();
     }
 

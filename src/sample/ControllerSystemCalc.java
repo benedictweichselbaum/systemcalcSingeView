@@ -6,7 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import sample.About.AboutFrame;
 import sample.Logic.CalculatorLogic;
+import sample.Logic.ExceptionHandler;
 import sample.Logic.Information;
 
 import java.net.URL;
@@ -69,7 +71,7 @@ public class ControllerSystemCalc implements Initializable {
     private ToggleGroup group2;
     private ToggleGroup group1;
     private Information information;
-    private CalculatorLogic calculatorLogic;
+    private AboutFrame aboutFrame;
 
     @Override
     @SuppressWarnings(value = "all")
@@ -91,12 +93,8 @@ public class ControllerSystemCalc implements Initializable {
     }
 
     @FXML
-    void about(ActionEvent event) {
-
-    }
-
-    @FXML
     void calculate(ActionEvent event) {
+        txtSolution.setText("");
         try {
             transferCurrentInformation();
         }catch (Exception e){
@@ -104,8 +102,14 @@ public class ControllerSystemCalc implements Initializable {
             return;
         }
 
-        calculatorLogic = new CalculatorLogic(information);
+        CalculatorLogic calculatorLogic = new CalculatorLogic(information);
+        ExceptionHandler exceptionHandler = new ExceptionHandler(information);
 
+        String checkSystemException = exceptionHandler.checkErrors();
+        lblHint.setText(checkSystemException);
+
+        if(checkSystemException != "")
+            return;
         txtSolution.setText(calculatorLogic.getSolution());
     }
 
@@ -120,9 +124,8 @@ public class ControllerSystemCalc implements Initializable {
         String toID;
 
         lblHint.setText("");
-        String checkEmptyNumberTxt = txtNumber.getText();
 
-        if(checkEmptyNumberTxt.equals("")){
+        if(txtNumber.getText().equals("")){
             lblHint.setText("Bitte gib' eine Nummer ein!");
             throw new Exception();
         }
@@ -179,6 +182,13 @@ public class ControllerSystemCalc implements Initializable {
         }
 
         information.setNumber(txtNumber.getText());
+    }
+
+
+    @FXML
+    void about(ActionEvent event) {
+        aboutFrame = new AboutFrame();
+        aboutFrame.showAboutPanel();
     }
 
 }

@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSystemCalc">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerSystemCalc">
    <children>
       <MenuBar fx:id="menuBar" prefHeight="39.0" prefWidth="1005.0">
         <menus>
@@ -16,18 +16,18 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label layoutX="25.0" layoutY="60.0" prefHeight="39.0" prefWidth="309.0" text="Zahlensystemumrechner">
+      <Label layoutX="25.0" layoutY="60.0" prefHeight="39.0" prefWidth="309.0" text="SystemCalc">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
       <RadioButton fx:id="rbFDual" layoutX="69.0" layoutY="169.0" mnemonicParsing="false" text="Dual" />
-      <RadioButton fx:id="rbFOctal" layoutX="69.0" layoutY="233.0" mnemonicParsing="false" text="Okatal" />
+      <RadioButton fx:id="rbFOctal" layoutX="69.0" layoutY="233.0" mnemonicParsing="false" text="Oktal" />
       <RadioButton fx:id="rbFDecimal" layoutX="285.0" layoutY="169.0" mnemonicParsing="false" text="Dezimal" />
       <RadioButton fx:id="rbFHex" layoutX="285.0" layoutY="233.0" mnemonicParsing="false" text="Hexadezimal" />
       <RadioButton fx:id="rbTHex" layoutX="800.0" layoutY="233.0" mnemonicParsing="false" text="Hexadezimal" />
       <RadioButton fx:id="rbTDecimal" layoutX="800.0" layoutY="169.0" mnemonicParsing="false" text="Dezimal" />
-      <RadioButton fx:id="rbTOctal" layoutX="584.0" layoutY="233.0" mnemonicParsing="false" text="Okatal" />
+      <RadioButton fx:id="rbTOctal" layoutX="584.0" layoutY="233.0" mnemonicParsing="false" text="Oktal" />
       <RadioButton fx:id="rbTDual" layoutX="584.0" layoutY="169.0" mnemonicParsing="false" text="Dual" />
       <Label layoutX="61.0" layoutY="124.0" prefHeight="27.0" prefWidth="68.0" text="Von ..." />
       <Label layoutX="584.0" layoutY="124.0" prefHeight="27.0" prefWidth="68.0" text="Nach ..." />
